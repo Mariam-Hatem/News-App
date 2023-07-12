@@ -20,7 +20,6 @@ The News App is a simple web application that allows users to read the latest ne
 
 - News API
 
-
 ## Installation
 
 1. Clone this repository using the following command:
