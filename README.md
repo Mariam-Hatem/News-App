@@ -8,7 +8,8 @@ The News App is a simple web application that allows users to read the latest ne
 - Users can browse news articles by category, such as politics, sports, finance, tech and health.
 - Users can search for news articles by certain query or topic.
 - Users can sort the results by date published, relevancy to search keyword or popularity of source.
-- 
+
+  
 ## Technologies Used
 
 - HTML
