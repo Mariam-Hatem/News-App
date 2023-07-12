@@ -25,6 +25,11 @@
             <div class="search-bar">
                 <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
                 <button id="search-button" class="search-button">Search</button>
+                <div class="sort-container container flex" id="sort-container">
+                    <button id="sort-date" class="sort-date" onclick="fetchNews('France', true)">Sort by Date</button>
+                    <button id="sort-relevancy" class="sort-relevancy" onclick="fetchNews('France', false, true)">Sort by Relevancy</button>
+                    <button id="sort-popularity" class="sort-popularity" onclick="fetchNews('France', false, false, true)">Sort by Popularity</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -51,4 +56,4 @@
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
