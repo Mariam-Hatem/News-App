@@ -114,6 +114,54 @@ nav {
     background-color: var(--accent-color-dark);
 }
 
+.sort-container {
+    display: flex;
+    padding-top: 4px;
+    gap: 4px;
+}
+
+.sort-date {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 16px;
+    border: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+}
+
+.sort-date:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.sort-relevancy {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 16px;
+    border: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+}
+
+.sort-relevancy:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.sort-popularity {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 4px 16px;
+    border: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+}
+
+.sort-popularity:hover {
+    background-color: var(--accent-color-dark);
+}
+
 main {
     padding-block: 20px;
     margin-top: 80px;
