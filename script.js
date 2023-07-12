@@ -1,17 +1,39 @@
 const API_KEY = "d8709e02715a408b880ba8c39d07031d";
 const url = "https://newsapi.org/v2/everything?q=";
 
-window.addEventListener("load", () => fetchNews("Egypt"));
+window.addEventListener("load", () => fetchNews("France"));
 
 function reload() {
     window.location.reload();
 }
 
-async function fetchNews (query) {
-    const res = await fetch(`${url}${query}&apikey=${API_KEY}`);
+async function fetchNews(query, sortByDate = false, sortByRelevancy = false, sortByPopularity = false) {
+    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
     const data = await res.json();
+    data.articles.sort((a, b) => {
+      if (sortByDate) {
+        // sort by date published
+        if (new Date(b.publishedAt) - new Date(a.publishedAt) !== 0) {
+          return new Date(b.publishedAt) - new Date(a.publishedAt);
+        }
+      }
+      if (sortByRelevancy) {
+        // sort by relevancy to search keyword
+        if (b.title.toLowerCase().includes(query.toLowerCase()) && !a.title.toLowerCase().includes(query.toLowerCase())) {
+          return 1;
+        } else if (!b.title.toLowerCase().includes(query.toLowerCase()) && a.title.toLowerCase().includes(query.toLowerCase())) {
+          return -1;
+        }
+      }
+      if (sortByPopularity) {
+        // sort by popularity of source
+        return b.source.totalResults - a.source.totalResults;
+      }
+      // default sort by date published
+      return new Date(b.publishedAt) - new Date(a.publishedAt);
+    });
     bindData(data.articles);
-}
+  }
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");
@@ -37,7 +59,7 @@ function fillDataInCard(cardClone, article) {
     newsDesc.innerHTML = article.description;
 
     const date = new Date(article.publishedAt).toLocaleString("en-US", {
-        timeZone: "Africa/Cairo"
+        timeZone: "Europe/Paris"
     });
 
     newsSource.innerHTML = `${article.source.name} . ${date}`;
